@@ -1,0 +1,248 @@
+// ============================================
+// SCSS 变量定义 - 现代化主题系统
+// 使用 @use 和 @forward 进行模块化管理
+// ============================================
+
+// ----------------------------------------
+// 品牌色彩系统
+// 可在此自定义主题色
+// ----------------------------------------
+
+// 主色调 - 蓝色系
+$primary-900: #1e3a5f !default;
+$primary-800: #1e40af !default;
+$primary-700: #1d4ed8 !default;
+$primary-600: #2563eb !default;
+$primary-500: #3b82f6 !default; // 默认主色
+$primary-400: #60a5fa !default;
+$primary-300: #93c5fd !default;
+$primary-200: #bfdbfe !default;
+$primary-100: #dbeafe !default;
+$primary-50: #eff6ff !default;
+
+// 中性灰色系
+$gray-900: #212529 !default;
+$gray-800: #343a40 !default;
+$gray-700: #495057 !default;
+$gray-600: #6c757d !default;
+$gray-500: #adb5bd !default;
+$gray-400: #ced4da !default;
+$gray-300: #dee2e6 !default;
+$gray-200: #e9ecef !default;
+$gray-100: #f8f9fa !default;
+$gray-50: #f1f3f4 !default;
+
+// 功能色
+$success-600: #2e7d32 !default;
+$success-500: #4caf50 !default;
+$success-200: #a5d6a7 !default;
+$success-100: #c8e6c9 !default;
+$success-50: #e8f5e9 !default;
+
+$warning-600: #e65100 !default;
+$warning-500: #ff9800 !default;
+$warning-200: #ffcc80 !default;
+$warning-100: #ffe0b2 !default;
+$warning-50: #fff3e0 !default;
+
+$error-600: #d32f2f !default;
+$error-500: #f44336 !default;
+$error-200: #ef9a9a !default;
+$error-100: #ffcdd2 !default;
+$error-50: #ffebee !default;
+
+$info-600: #1976d2 !default;
+$info-500: #2196f3 !default;
+$info-200: #90caf9 !default;
+$info-100: #bbdefb !default;
+$info-50: #e3f2fd !default;
+
+// ----------------------------------------
+// 文本颜色
+// ----------------------------------------
+$text-primary: $gray-900 !default;
+$text-secondary: $gray-700 !default;
+$text-tertiary: $gray-600 !default;
+$text-disabled: $gray-500 !default;
+$text-white: #ffffff !default;
+$text-link: $info-500 !default;
+
+// ----------------------------------------
+// 背景颜色
+// ----------------------------------------
+$bg-white: #ffffff !default;
+$bg-page: $gray-100 !default;
+$bg-card: $gray-50 !default;
+$bg-hover: rgba(0, 0, 0, 0.04) !default;
+$bg-active: rgba(0, 0, 0, 0.08) !default;
+
+// ----------------------------------------
+// 边框颜色
+// ----------------------------------------
+$border-color: $gray-300 !default;
+$border-light: $gray-200 !default;
+$border-dark: $gray-400 !default;
+$border-primary: $primary-500 !default;
+
+// ----------------------------------------
+// 布局系统
+// ----------------------------------------
+$sidebar-width: 240px !default;
+$sidebar-collapsed-width: 64px !default;
+$header-height: 64px !default;
+$navbar-height: 48px !default;
+$content-max-width: 1400px !default;
+$content-padding: 24px !default;
+$content-padding-sm: 16px !default;
+$section-gap: 24px !default;
+
+// ----------------------------------------
+// 字体系统
+// ----------------------------------------
+$font-family-base:
+  'Noto Sans SC',
+  'Microsoft YaHei',
+  '微软雅黑',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  sans-serif !default;
+$font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace !default;
+
+// 字体大小 (8pt grid)
+$font-size-xs: 12px !default;
+$font-size-sm: 16px !default;
+$font-size-base: 16px !default;
+$font-size-md: 16px !default;
+$font-size-lg: 24px !default;
+$font-size-xl: 24px !default;
+$font-size-2xl: 24px !default;
+$font-size-3xl: 32px !default;
+
+// 字体权重
+$font-weight-regular: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+// 行高
+$line-height-tight: 1.25 !default;
+$line-height-normal: 1.5 !default;
+$line-height-relaxed: 1.75 !default;
+
+// ----------------------------------------
+// 间距系统 (8px 基准)
+// ----------------------------------------
+$spacing-1: 4px !default;
+$spacing-2: 8px !default;
+$spacing-3: 12px !default;
+$spacing-4: 16px !default;
+$spacing-5: 24px !default;
+$spacing-6: 24px !default;
+$spacing-8: 32px !default;
+$spacing-10: 40px !default;
+$spacing-12: 48px !default;
+$spacing-16: 64px !default;
+
+// ----------------------------------------
+// 圆角系统
+// ----------------------------------------
+$border-radius-sm: 4px !default;
+$border-radius-base: 8px !default;
+$border-radius-md: 8px !default;
+$border-radius-lg: 12px !default;
+$border-radius-xl: 16px !default;
+$border-radius-full: 9999px !default;
+
+// ----------------------------------------
+// 阴影系统
+// ----------------------------------------
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !default;
+$shadow-base:
+  0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  0 1px 2px -1px rgba(0, 0, 0, 0.1) !default;
+$shadow-md:
+  0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -2px rgba(0, 0, 0, 0.1) !default;
+$shadow-lg:
+  0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -4px rgba(0, 0, 0, 0.1) !default;
+$shadow-xl:
+  0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 8px 10px -6px rgba(0, 0, 0, 0.1) !default;
+$shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05) !default;
+
+// 主题色阴影
+$shadow-primary: 0 4px 14px 0 rgba($primary-500, 0.39) !default;
+$shadow-primary-sm: 0 2px 8px 0 rgba($primary-500, 0.25) !default;
+
+// ----------------------------------------
+// 过渡动画
+// ----------------------------------------
+$transition-duration-fast: 150ms !default;
+$transition-duration-base: 250ms !default;
+$transition-duration-slow: 350ms !default;
+$transition-timing-default: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$transition-timing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55) !default;
+
+$transition-all: all $transition-duration-base $transition-timing-default !default;
+$transition-colors:
+  color, background-color, border-color, text-decoration-color, fill, stroke !default;
+$transition-transform: transform $transition-duration-base $transition-timing-default !default;
+$transition-opacity: opacity $transition-duration-base $transition-timing-default !default;
+
+// ----------------------------------------
+// Z-index 层级
+// ----------------------------------------
+$z-index-dropdown: 1000 !default;
+$z-index-sticky: 1020 !default;
+$z-index-fixed: 1030 !default;
+$z-index-modal-backdrop: 1040 !default;
+$z-index-modal: 1050 !default;
+$z-index-popover: 1060 !default;
+$z-index-tooltip: 1070 !default;
+$z-index-toast: 1080 !default;
+
+// ----------------------------------------
+// 断点系统
+// ----------------------------------------
+$breakpoint-xs: 480px !default;
+$breakpoint-sm: 640px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 1024px !default;
+$breakpoint-xl: 1280px !default;
+$breakpoint-2xl: 1536px !default;
+
+// ----------------------------------------
+// 组件特定变量
+// ----------------------------------------
+
+// 按钮
+$btn-height-sm: 32px !default;
+$btn-height-base: 40px !default;
+$btn-height-lg: 40px !default;
+$btn-padding-sm: 0 8px !default;
+$btn-padding-base: 0 16px !default;
+$btn-padding-lg: 0 24px !default;
+
+// 输入框
+$input-height: 40px !default;
+$input-padding: 0 16px !default;
+$input-border-radius: $border-radius-base !default;
+
+// 卡片
+$card-padding: 16px !default;
+$card-padding-lg: 24px !default;
+$card-shadow: $shadow-base !default;
+$card-shadow-hover: $shadow-md !default;
+$card-border-radius: $border-radius-lg !default;
+
+// 导航栏
+$nav-item-padding: 8px 16px !default;
+$nav-item-gap: 4px !default;
+
+// 流程图容器
+$flowchart-min-height: 500px !default;
+$flowchart-padding: 16px !default;
+$flowchart-border-radius: $border-radius-lg !default;

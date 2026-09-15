@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+.DS_Store
+
+# Auto-generated type declarations
+src/components.d.ts
+src/auto-imports.d.ts
