@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "p-agent-harness"
+version = "0.1.0"
+description = "构建一个基于deep_agent的智能体脚手架"
+readme = "README.md"
+authors = [
+    { name = "老杨" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "deepagents>=0.7.13",
+    "filetype>=1.2.0",
+    "httpx>=0.28.1",
+    "langchain-deepseek>=1.1.0",
+    "langchain-openai>=1.6.2",
+    "langchain-sandbox-opensandbox>=0.1.2",
+    "langgraph-checkpoint-postgres>=3.1.2",
+    "langgraph-cli[inmem]>=0.4.31",
+    "loguru>=0.7.3",
+    "psycopg[binary,pool]>=3.3.5",
+    "requests>=2.34.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pyinstaller>=6.21.0",
+    "ruff>=0.6.0",
+    "mypy>=1.13.0",
+    "pytest-asyncio>=1.4.0",
+]
+
+
+[project.scripts]
+p-agent-harness = "p_agent_harness:main"
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
+
+
+# --- pytest ---
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+
+# --- setuptools 包发现 ---
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["p_agent_harness*"]
+
+# --- ruff（lint + format）---
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP"]
+
+# --- mypy（静态类型检查）---
+[tool.mypy]
+python_version = "3.13"
+strict = true
+ignore_missing_imports = true
+

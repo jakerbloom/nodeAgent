@@ -1,0 +1,35 @@
+[project]
+name = "p_pagent_harness"
+
+
+# 日志相关配置
+[log.console]
+log_format = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <blue>{file}</blue>-><cyan>{function}</cyan>(<yellow>Line:{line}</yellow>) | <level>{message}</level> | <yellow>{extra}</yellow>"
+log_console_enable = true
+log_console_level = "INFO"
+log_console_colorize = true
+log_console_backtrace = true
+log_console_diagnose = true
+
+[log.file]
+log_file_enable = true
+log_file_level = "DEBUG"
+log_file_retention = "7 days"
+log_file_rotation = "10 MB"
+log_file_encoding = "utf-8"
+log_file_backtrace = true
+log_file_diagnose = true
+
+[agent]
+api_key = "lm-studio"
+base_url = "http://192.168.100.100:1234/v1"
+model_name = "google/gemma-4-e4b"
+temperature = 0.7
+max_tokens = 4096
+
+
+[sandbox]
+image_name = "sandbox-registry.cn-zhangjiakou.cr.aliyuncs.com/opensandbox/code-interpreter:v1.1.0"
+
+
+
