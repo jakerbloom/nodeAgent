@@ -14,7 +14,7 @@ module.exports = {
   // 每行最大长度
   printWidth: 100,
   // 自动换行
-  endOfLine: 'auto',
+  endOfLine: 'lf',
   // 箭头函数参数括号(避免)
   arrowParens: 'avoid',
   // 对象字面量括号空格
@@ -28,7 +28,7 @@ module.exports = {
   // 对象属性引号(按需)
   quoteProps: 'as-needed',
   // 多行JSX标签闭合位置
-  jsxBracketSameLine: false,
+  bracketSameLine: false,
   // Vue文件脚本和样式标签缩进
   vueIndentScriptAndStyle: true,
 }

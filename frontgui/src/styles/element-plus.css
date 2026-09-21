@@ -1,0 +1,39 @@
+/* 不使用 Sass；颜色派生自示例 token，修改主色会同步更新控件状态。 */
+:root:root {
+  --el-color-primary: var(--color-primary);
+  --el-color-primary-light-3: color-mix(in srgb, var(--color-primary), white 30%);
+  --el-color-primary-light-5: color-mix(in srgb, var(--color-primary), white 50%);
+  --el-color-primary-light-7: color-mix(in srgb, var(--color-primary), white 70%);
+  --el-color-primary-light-8: color-mix(in srgb, var(--color-primary), white 80%);
+  --el-color-primary-light-9: color-mix(in srgb, var(--color-primary), white 90%);
+  --el-color-primary-dark-2: color-mix(in srgb, var(--color-primary), black 20%);
+  --el-color-success: var(--color-success);
+  --el-color-success-light-3: color-mix(in srgb, var(--color-success), white 30%);
+  --el-color-success-light-5: color-mix(in srgb, var(--color-success), white 50%);
+  --el-color-success-light-7: color-mix(in srgb, var(--color-success), white 70%);
+  --el-color-success-light-8: color-mix(in srgb, var(--color-success), white 80%);
+  --el-color-success-light-9: color-mix(in srgb, var(--color-success), white 90%);
+  --el-color-success-dark-2: color-mix(in srgb, var(--color-success), black 20%);
+  --el-color-danger: var(--color-error);
+  --el-color-danger-light-3: color-mix(in srgb, var(--color-error), white 30%);
+  --el-color-danger-light-5: color-mix(in srgb, var(--color-error), white 50%);
+  --el-color-danger-light-7: color-mix(in srgb, var(--color-error), white 70%);
+  --el-color-danger-light-8: color-mix(in srgb, var(--color-error), white 80%);
+  --el-color-danger-light-9: color-mix(in srgb, var(--color-error), white 90%);
+  --el-color-danger-dark-2: color-mix(in srgb, var(--color-error), black 20%);
+  --el-color-info: var(--color-info);
+  --el-color-info-light-3: color-mix(in srgb, var(--color-info), white 30%);
+  --el-color-info-light-5: color-mix(in srgb, var(--color-info), white 50%);
+  --el-color-info-light-7: color-mix(in srgb, var(--color-info), white 70%);
+  --el-color-info-light-8: color-mix(in srgb, var(--color-info), white 80%);
+  --el-color-info-light-9: color-mix(in srgb, var(--color-info), white 90%);
+  --el-color-info-dark-2: color-mix(in srgb, var(--color-info), black 20%);
+  --el-text-color-primary: var(--color-foreground);
+  --el-text-color-regular: var(--color-muted);
+  --el-border-color: var(--color-border);
+  --el-bg-color: var(--color-surface);
+  --el-bg-color-page: var(--color-page);
+  --el-fill-color-blank: var(--color-surface);
+  --el-font-family: var(--font-sans);
+  --el-border-radius-base: var(--radius-control);
+}

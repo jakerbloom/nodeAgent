@@ -1,0 +1,19 @@
+/* 仅供运行的浅色示例。先确定 DESIGN.md，再替换这些值。 */
+@theme static {
+  --color-primary: #2563eb;
+  --color-primary-hover: color-mix(in srgb, var(--color-primary), black 15%);
+  --color-on-primary: #ffffff;
+  --color-page: #f8fafc;
+  --color-surface: #ffffff;
+  --color-foreground: #0f172a;
+  --color-muted: #475569;
+  --color-border: #cbd5e1;
+  --color-success: #15803d;
+  --color-error: #b91c1c;
+  --color-info: #1d4ed8;
+  --color-skeleton: #e2e8f0;
+  --font-sans: 'Noto Sans SC', 'Microsoft YaHei', system-ui, sans-serif;
+  --radius-control: 0.5rem;
+  --radius-card: 0.75rem;
+  --shadow-card: 0 4px 20px rgb(15 23 42 / 0.06);
+}

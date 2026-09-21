@@ -31,7 +31,7 @@ export const useTabStore = defineStore(
     // ==================== Getters ====================
     /** 当前激活的标签页 */
     const activeTab = computed(() => {
-      return tabs.value.find((tab) => tab.id === activeTabId.value) || null
+      return tabs.value.find(tab => tab.id === activeTabId.value) || null
     })
 
     /** Tab数量 */
@@ -80,7 +80,7 @@ export const useTabStore = defineStore(
     const switchTab = (tabId: string): boolean => {
       if (tabId === activeTabId.value) return true
 
-      const tab = tabs.value.find((t) => t.id === tabId)
+      const tab = tabs.value.find(t => t.id === tabId)
       if (!tab) return false
 
       activeTabId.value = tabId
@@ -91,7 +91,7 @@ export const useTabStore = defineStore(
      * 关闭Tab
      */
     const closeTab = (tabId: string): boolean => {
-      const tabIndex = tabs.value.findIndex((t) => t.id === tabId)
+      const tabIndex = tabs.value.findIndex(t => t.id === tabId)
       if (tabIndex === -1) return false
 
       // 删除Tab
@@ -125,7 +125,7 @@ export const useTabStore = defineStore(
      * 更新Tab信息
      */
     const updateTab = (tabId: string, updates: Partial<TabItem>): boolean => {
-      const tab = tabs.value.find((t) => t.id === tabId)
+      const tab = tabs.value.find(t => t.id === tabId)
       if (!tab) return false
 
       Object.assign(tab, updates)
@@ -136,7 +136,7 @@ export const useTabStore = defineStore(
      * 设置Tab状态
      */
     const setTabState = (tabId: string, state: Record<string, unknown>): boolean => {
-      const tab = tabs.value.find((t) => t.id === tabId)
+      const tab = tabs.value.find(t => t.id === tabId)
       if (!tab) return false
 
       tab.state = state
@@ -147,7 +147,7 @@ export const useTabStore = defineStore(
      * 获取Tab状态
      */
     const getTabState = (tabId: string): Record<string, unknown> | null => {
-      const tab = tabs.value.find((t) => t.id === tabId)
+      const tab = tabs.value.find(t => t.id === tabId)
       return tab ? tab.state : null
     }
 
@@ -155,14 +155,14 @@ export const useTabStore = defineStore(
      * 根据标题查找Tab
      */
     const findTabByTitle = (title: string): TabItem | undefined => {
-      return tabs.value.find((tab) => tab.title === title)
+      return tabs.value.find(tab => tab.title === title)
     }
 
     /**
      * 检查标题是否已打开
      */
     const isTitleOpen = (title: string): boolean => {
-      return tabs.value.some((tab) => tab.title === title)
+      return tabs.value.some(tab => tab.title === title)
     }
 
     /**
@@ -170,8 +170,8 @@ export const useTabStore = defineStore(
      */
     const reorderTabs = (newOrder: string[]) => {
       const orderedTabs: TabItem[] = []
-      newOrder.forEach((id) => {
-        const tab = tabs.value.find((t) => t.id === id)
+      newOrder.forEach(id => {
+        const tab = tabs.value.find(t => t.id === id)
         if (tab) orderedTabs.push(tab)
       })
       tabs.value = orderedTabs

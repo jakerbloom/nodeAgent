@@ -11,7 +11,7 @@ import '@fontsource/noto-sans-sc/500.css'
 import '@fontsource/noto-sans-sc/600.css'
 import '@fontsource/noto-sans-sc/700.css'
 
-import './styles/index.scss'
+import './styles/index.css'
 
 // ==================== ECharts ====================
 import { use } from 'echarts/core'
@@ -48,4 +48,17 @@ app.use(pinia)
 app.use(router)
 // Element Plus
 
-app.mount('#app')
+async function bootstrap() {
+  if (import.meta.env.DEV && import.meta.env.MODE === 'development') {
+    const { worker } = await import('./mocks/browser')
+    await worker.start({
+      serviceWorker: { url: `${import.meta.env.BASE_URL}mockServiceWorker.js` },
+      onUnhandledRequest: 'bypass',
+    })
+  }
+  app.mount('#app')
+}
+
+void bootstrap().catch(error => {
+  console.error('应用启动失败:', error)
+})

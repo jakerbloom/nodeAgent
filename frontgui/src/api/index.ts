@@ -8,7 +8,7 @@ import type { ApiResponse, ApiError } from '@/types/api'
 
 // 创建 Axios 实例
 const request: AxiosInstance = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json; charset=utf-8',
@@ -57,7 +57,7 @@ request.interceptors.response.use(
       } else {
         // 业务错误：抛出错误，使用后端返回的 message
         const errorMessage = apiData.message || `业务错误 (code: ${apiData.code})`
-        return Promise.reject(new Error(errorMessage)) as unknown as AxiosResponse
+        return Promise.reject(new Error(errorMessage))
       }
     }
     // 否则保持原样（后端直接返回数据的旧格式）

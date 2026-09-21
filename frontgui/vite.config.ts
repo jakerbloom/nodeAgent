@@ -1,13 +1,17 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { getEnvironmentConfig } from './config/environment'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  ...getEnvironmentConfig(loadEnv(mode, process.cwd(), '')),
   plugins: [
     vue(),
+    tailwindcss(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
       dts: 'src/auto-imports.d.ts',
@@ -33,12 +37,6 @@ export default defineConfig({
       '@views': resolve(__dirname, 'src/views'),
     },
   },
-  server: {
-    port: 18888,
-    fs: {
-      allow: ['..'],
-    },
-  },
   build: {
     outDir: './dist',
     emptyOutDir: true,
@@ -48,7 +46,7 @@ export default defineConfig({
       output: {
         entryFileNames: `js/[name].[hash].js`,
         chunkFileNames: `js/[name].[hash].js`,
-        assetFileNames: (assetInfo) => {
+        assetFileNames: assetInfo => {
           const name = assetInfo.name ?? ''
           if (/\.(png|jpe?g|gif|svg|webp|ico)$/i.test(name)) {
             return `img/[name].[hash][extname]`
@@ -62,14 +60,14 @@ export default defineConfig({
           // Element Plus
           'element-plus': ['element-plus', '@element-plus/icons-vue'],
           // ECharts
-          'echarts': ['echarts', 'vue-echarts'],
+          echarts: ['echarts', 'vue-echarts'],
           // Vue
           'vue-vendor': ['vue', 'vue-router', 'pinia'],
           // Utils
-          'utils': ['axios', 'dayjs', 'localforage', 'gsap'],
+          utils: ['axios', 'dayjs', 'localforage', 'gsap'],
         },
       },
     },
   },
   publicDir: 'public',
-})
+}))
